@@ -1,0 +1,1 @@
+export { TrendingMoviesItem } from './TrendingMoviesItem';

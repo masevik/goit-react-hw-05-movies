@@ -1,5 +1,6 @@
 import { fetchTrendingMovies } from '../components/API';
 import { useState, useEffect } from 'react';
+import { TrendingMovies } from 'components/TrendingMovies';
 
 export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
@@ -8,7 +9,6 @@ export const Home = () => {
     const getTrendingMovies = async () => {
       try {
         const movies = await fetchTrendingMovies();
-        console.log(movies);
         setTrendingMovies(movies);
       } catch (error) {
         console.log(error);
@@ -18,11 +18,5 @@ export const Home = () => {
     getTrendingMovies();
   }, []);
 
-  return (
-    <ul>
-      {trendingMovies.map(movie => (
-        <li key={movie.id}>{movie.original_title}</li>
-      ))}
-    </ul>
-  );
+  return <TrendingMovies movies={trendingMovies} />;
 };
