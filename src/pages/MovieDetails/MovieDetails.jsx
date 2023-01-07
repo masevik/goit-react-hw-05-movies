@@ -1,15 +1,25 @@
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchMovieById } from '../../components/API';
 import { Box } from 'components/Box';
 import { Loader } from '../../components/Loader';
 import { errorMessage } from '../../components/ErrorMessage';
-import { Overview, Genres, Poster } from './MovieDetails.styled';
+import { BackLink } from '../../components/BackLink';
+import {
+  Overview,
+  Genres,
+  Poster,
+  Title,
+  AddInfoList,
+  StyledLink,
+} from './MovieDetails.styled';
 
 export const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { moviesId } = useParams();
+  const location = useLocation();
+  const backLinkHref = location.state?.from ?? '/';
 
   useEffect(() => {
     const getMovieById = async id => {
@@ -42,14 +52,19 @@ export const MoviesDetails = () => {
 
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
-      <button type="button">Go back</button>
-      <Box display="flex" marginTop="10px" borderBottom="1px solid #3f51b5">
+      <BackLink to={backLinkHref}>Go back</BackLink>
+      <Box
+        display="flex"
+        marginTop="10px"
+        borderBottom="1px solid #3f51b5"
+        marginBottom="10px"
+      >
         <Poster
           src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
           alt={`poster ${title}`}
         ></Poster>
         <Box marginLeft="10px">
-          <h2>{`${title} (${new Date(release_date).getFullYear()})`}</h2>
+          <Title>{`${title} (${new Date(release_date).getFullYear()})`}</Title>
           <p>User Score: {Math.round(vote_average * 10)}%</p>
           <Overview>Overview</Overview>
           <p>{overview}</p>
@@ -57,6 +72,18 @@ export const MoviesDetails = () => {
           <p>{genresList.join(' ')}</p>
         </Box>
       </Box>
+      <Box borderBottom="1px solid #3f51b5" marginBottom="10px">
+        <p>Additional information</p>
+        <AddInfoList>
+          <li>
+            <StyledLink to="cast">Cast</StyledLink>
+          </li>
+          <li>
+            <StyledLink to="reviews">Reviews</StyledLink>
+          </li>
+        </AddInfoList>
+      </Box>
+      <Outlet />
       {isLoading && <Loader />}
     </Box>
   );
