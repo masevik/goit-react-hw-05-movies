@@ -1,10 +1,14 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchMovieById } from '../components/API';
+import { fetchMovieById } from '../../components/API';
 import { Box } from 'components/Box';
+import { Loader } from '../../components/Loader';
+import { errorMessage } from '../../components/ErrorMessage';
+import { Overview, Genres, Poster } from './MovieDetails.styled';
 
 export const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { moviesId } = useParams();
 
   useEffect(() => {
@@ -17,8 +21,10 @@ export const MoviesDetails = () => {
         const movie = await fetchMovieById(id);
         setMovie(movie);
         console.log(movie);
-      } catch (error) {
-        console.log(error);
+      } catch {
+        errorMessage();
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -36,20 +42,21 @@ export const MoviesDetails = () => {
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
       <button type="button">Go back</button>
-      <Box display="flex" marginTop="10px">
-        <img
+      <Box display="flex" marginTop="10px" borderBottom="1px solid #3f51b5">
+        <Poster
           src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
           alt={`poster ${title}`}
-        ></img>
-        <div>
+        ></Poster>
+        <Box marginLeft="10px">
           <h2>{`${title} (${new Date(release_date).getFullYear()})`}</h2>
           <p>User Score: {Math.round(vote_average * 10)}%</p>
-          <p>Overview</p>
+          <Overview>Overview</Overview>
           <p>{overview}</p>
-          <p>Genres</p>
+          <Genres>Genres</Genres>
           <p>{genresList.join(' ')}</p>
-        </div>
+        </Box>
       </Box>
+      {isLoading && <Loader />}
     </Box>
   );
 };

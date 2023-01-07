@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Home } from '../pages/Home';
 import { Movies } from '../pages/Movies';
-import { MoviesDetails } from 'pages/MovieDetails';
+import { MoviesDetails } from 'pages/MovieDetails/MovieDetails';
 import { SharedLayout } from './SharedLayout';
 import { Cast } from './Cast/';
 import { Reviews } from './Reviews/';

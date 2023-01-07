@@ -16,6 +16,7 @@ export const Header = styled.header`
 export const Link = styled(NavLink)`
   color: #ffffff;
   text-decoration: none;
+  font-size: 25px;
 
   &.active {
     color: #efb343;
