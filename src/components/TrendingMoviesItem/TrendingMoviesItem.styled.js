@@ -13,4 +13,5 @@ export const Image = styled.img`
 export const StyledLink = styled(Link)`
   display: flex;
   align-items: center;
+  text-decoration: none;
 `;

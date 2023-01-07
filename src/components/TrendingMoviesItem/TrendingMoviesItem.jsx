@@ -6,14 +6,16 @@ import {
 } from './TrendingMoviesItem.styled';
 
 export const TrendingMoviesItem = ({ movie }) => {
+  const { id, poster_path, title } = movie;
+
   return (
-    <TrendingMoviesStyledItem key={movie.id}>
-      <StyledLink to={`movies/${movie.id}`}>
+    <TrendingMoviesStyledItem key={id}>
+      <StyledLink to={`movies/${id}`}>
         <Image
-          src={'https://image.tmdb.org/t/p/w200' + movie.poster_path}
-          alt={movie.media_type + ' ' + movie.original_title}
+          src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
+          alt={`poster ${title}`}
         ></Image>
-        {movie.original_title}
+        {title}
       </StyledLink>
     </TrendingMoviesStyledItem>
   );
