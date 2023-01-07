@@ -8,7 +8,7 @@ import { Overview, Genres, Poster } from './MovieDetails.styled';
 
 export const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const { moviesId } = useParams();
 
   useEffect(() => {
@@ -18,6 +18,7 @@ export const MoviesDetails = () => {
       }
 
       try {
+        setIsLoading(true);
         const movie = await fetchMovieById(id);
         setMovie(movie);
         console.log(movie);
