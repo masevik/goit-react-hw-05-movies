@@ -1,0 +1,1 @@
+export { MovieAddInfo } from './MovieAddInfo';

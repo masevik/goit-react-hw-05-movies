@@ -5,14 +5,8 @@ import { Box } from 'components/Box';
 import { Loader } from '../../components/Loader';
 import { errorMessage } from '../../components/ErrorMessage';
 import { BackLink } from '../../components/BackLink';
-import {
-  Overview,
-  Genres,
-  Image,
-  Title,
-  AddInfoList,
-  StyledLink,
-} from './MovieDetails.styled';
+import { MovieAddInfo } from '../../components/MovieAddInfo';
+import { Overview, Genres, Image, Title } from './MovieDetails.styled';
 import placeholder from '../../images/coverPlaceholder.jpg';
 
 export const MoviesDetails = () => {
@@ -76,21 +70,7 @@ export const MoviesDetails = () => {
           <p>{genresList.join(' ')}</p>
         </Box>
       </Box>
-      <Box borderBottom="1px solid #3f51b5" marginBottom="10px">
-        <p>Additional information</p>
-        <AddInfoList>
-          <li>
-            <StyledLink to="cast" state={{ from: location }}>
-              Cast
-            </StyledLink>
-          </li>
-          <li>
-            <StyledLink to="reviews" state={{ from: location }}>
-              Reviews
-            </StyledLink>
-          </li>
-        </AddInfoList>
-      </Box>
+      <MovieAddInfo />
       <Outlet />
       {isLoading && <Loader />}
     </Box>
