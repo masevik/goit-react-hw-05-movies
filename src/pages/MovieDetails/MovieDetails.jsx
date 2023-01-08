@@ -31,7 +31,6 @@ export const MoviesDetails = () => {
         setIsLoading(true);
         const movie = await fetchMovieById(id);
         setMovie(movie);
-        console.log(movie);
       } catch {
         errorMessage();
       } finally {

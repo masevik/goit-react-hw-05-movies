@@ -16,3 +16,10 @@ export async function fetchMovieById(id) {
   );
   return data;
 }
+
+export async function fetchActorsById(id) {
+  const { data } = await axios.get(
+    `movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+  );
+  return data;
+}
