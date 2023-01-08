@@ -8,11 +8,12 @@ import { BackLink } from '../../components/BackLink';
 import {
   Overview,
   Genres,
-  Poster,
+  Image,
   Title,
   AddInfoList,
   StyledLink,
 } from './MovieDetails.styled';
+import placeholder from '../../images/coverPlaceholder.jpg';
 
 export const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -58,10 +59,14 @@ export const MoviesDetails = () => {
         borderBottom="1px solid #3f51b5"
         marginBottom="10px"
       >
-        <Poster
-          src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-          alt={`poster ${title}`}
-        ></Poster>
+        {poster_path ? (
+          <Image
+            src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
+            alt={`poster ${title}`}
+          ></Image>
+        ) : (
+          <Image src={placeholder} alt="placeholder"></Image>
+        )}
         <Box marginLeft="10px">
           <Title>{`${title} (${new Date(release_date).getFullYear()})`}</Title>
           <p>User Score: {Math.round(vote_average * 10)}%</p>

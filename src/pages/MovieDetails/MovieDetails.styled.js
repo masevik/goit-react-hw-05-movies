@@ -13,7 +13,7 @@ export const Genres = styled.h4`
   margin-top: 10px;
 `;
 
-export const Poster = styled.img`
+export const Image = styled.img`
   margin-bottom: 10px;
 `;
 
