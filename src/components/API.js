@@ -23,3 +23,10 @@ export async function fetchActorsById(id) {
   );
   return data;
 }
+
+export async function fetchReviewsById(id) {
+  const { data } = await axios.get(
+    `movie/${id}/reviews?api_key=${API_KEY}&language=en-US`
+  );
+  return data;
+}

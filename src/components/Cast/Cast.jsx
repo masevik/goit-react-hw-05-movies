@@ -13,7 +13,7 @@ export const Cast = () => {
   const { moviesId } = useParams();
 
   useEffect(() => {
-    const getCastById = async id => {
+    const getActorsById = async id => {
       if (id === undefined) {
         return;
       }
@@ -29,7 +29,7 @@ export const Cast = () => {
       }
     };
 
-    getCastById(moviesId);
+    getActorsById(moviesId);
   }, [moviesId]);
 
   if (actors === null) {
@@ -40,11 +40,11 @@ export const Cast = () => {
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
       <ul>
         {actors.cast.map(actor => {
-          const { profile_path, name, character } = actor;
+          const { profile_path, name, character, id } = actor;
 
           return (
-            <ActorsListItem key={actor.id}>
-              {actor.profile_path ? (
+            <ActorsListItem key={id}>
+              {profile_path ? (
                 <Image
                   src={`https://image.tmdb.org/t/p/w200/${profile_path}`}
                   alt={`${name}`}
