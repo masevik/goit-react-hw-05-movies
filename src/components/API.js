@@ -30,3 +30,14 @@ export async function fetchReviewsById(id) {
   );
   return data;
 }
+
+export async function fetchSearchMovie(query) {
+  const params = {
+    params: {
+      api_key: API_KEY,
+      language: 'en-US',
+    },
+  };
+  const { data } = await axios.get(`search/movie?query=${query}`, params);
+  return data;
+}

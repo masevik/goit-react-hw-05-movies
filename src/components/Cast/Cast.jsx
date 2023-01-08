@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchActorsById } from '../../components/API';
+import { fetchActorsById, fetchSearchMovie } from '../../components/API';
 import { Box } from 'components/Box';
 import { Loader } from '../../components/Loader';
 import { errorMessage } from '../../components/ErrorMessage';
@@ -35,7 +35,7 @@ export const Cast = () => {
   if (actors === null) {
     return;
   }
-
+  fetchSearchMovie('avatar');
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
       <ul>
