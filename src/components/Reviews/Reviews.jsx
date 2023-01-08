@@ -20,7 +20,7 @@ export const Reviews = () => {
       try {
         setIsLoading(true);
         const reviews = await fetchReviewsById(id);
-        setReviews(reviews);
+        setReviews(reviews.results);
       } catch {
         errorMessage();
       } finally {
@@ -35,13 +35,11 @@ export const Reviews = () => {
     return;
   }
 
-  console.log(reviews);
-
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
-      {reviews.results.length > 0 ? (
+      {reviews.length > 0 ? (
         <ul>
-          {reviews.results.map(review => {
+          {reviews.map(review => {
             const { id, author, content } = review;
 
             return (

@@ -8,6 +8,7 @@ export const Container = styled.div`
 export const Header = styled.header`
   display: flex;
   align-items: center;
+  justify-content: center;
   height: 50px;
   padding: 0 16px;
   background-color: #3f51b5;

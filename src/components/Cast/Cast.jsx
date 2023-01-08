@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchActorsById, fetchSearchMovie } from '../../components/API';
+import { fetchActorsById } from '../../components/API';
 import { Box } from 'components/Box';
 import { Loader } from '../../components/Loader';
 import { errorMessage } from '../../components/ErrorMessage';
@@ -21,7 +21,7 @@ export const Cast = () => {
       try {
         setIsLoading(true);
         const actors = await fetchActorsById(id);
-        setActors(actors);
+        setActors(actors.cast);
       } catch {
         errorMessage();
       } finally {
@@ -35,31 +35,35 @@ export const Cast = () => {
   if (actors === null) {
     return;
   }
-  fetchSearchMovie('avatar');
+
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
-      <ul>
-        {actors.cast.map(actor => {
-          const { profile_path, name, character, id } = actor;
+      {actors.length > 0 ? (
+        <ul>
+          {actors.map(actor => {
+            const { profile_path, name, character, id } = actor;
 
-          return (
-            <ActorsListItem key={id}>
-              {profile_path ? (
-                <Image
-                  src={`https://image.tmdb.org/t/p/w200/${profile_path}`}
-                  alt={`${name}`}
-                ></Image>
-              ) : (
-                <Image src={placeholder} alt="placeholder"></Image>
-              )}
-              <div>
-                <Name>{name}</Name>
-                <p>Character: {character}</p>
-              </div>
-            </ActorsListItem>
-          );
-        })}
-      </ul>
+            return (
+              <ActorsListItem key={id}>
+                {profile_path ? (
+                  <Image
+                    src={`https://image.tmdb.org/t/p/w200/${profile_path}`}
+                    alt={`${name}`}
+                  ></Image>
+                ) : (
+                  <Image src={placeholder} alt="placeholder"></Image>
+                )}
+                <div>
+                  <Name>{name}</Name>
+                  <p>Character: {character}</p>
+                </div>
+              </ActorsListItem>
+            );
+          })}
+        </ul>
+      ) : (
+        'We don`t have information for this movie'
+      )}
 
       {isLoading && <Loader />}
     </Box>

@@ -75,10 +75,14 @@ export const MoviesDetails = () => {
         <p>Additional information</p>
         <AddInfoList>
           <li>
-            <StyledLink to="cast">Cast</StyledLink>
+            <StyledLink to="cast" state={{ from: location }}>
+              Cast
+            </StyledLink>
           </li>
           <li>
-            <StyledLink to="reviews">Reviews</StyledLink>
+            <StyledLink to="reviews" state={{ from: location }}>
+              Reviews
+            </StyledLink>
           </li>
         </AddInfoList>
       </Box>
