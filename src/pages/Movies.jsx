@@ -7,7 +7,7 @@ import { Box } from 'components/Box';
 import { Loader } from '../components/Loader';
 import { SearchedMovies } from '../components/SearchedMovies';
 
-export const Movies = () => {
+const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -50,3 +50,5 @@ export const Movies = () => {
     </Box>
   );
 };
+
+export default Movies;

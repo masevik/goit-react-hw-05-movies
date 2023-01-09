@@ -5,7 +5,7 @@ import { Loader } from '../components/Loader';
 import { errorMessage } from '../components/ErrorMessage';
 import { Box } from 'components/Box';
 
-export const Home = () => {
+const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,3 +33,5 @@ export const Home = () => {
     </Box>
   );
 };
+
+export default Home;

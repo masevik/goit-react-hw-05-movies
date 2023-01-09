@@ -6,7 +6,7 @@ import { Loader } from '../../components/Loader';
 import { errorMessage } from '../../components/ErrorMessage';
 import { ReviewsListItem, Name } from './Reviews.styled';
 
-export const Reviews = () => {
+const Reviews = () => {
   const [reviews, setReviews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { moviesId } = useParams();
@@ -57,3 +57,5 @@ export const Reviews = () => {
     </Box>
   );
 };
+
+export default Reviews;

@@ -7,7 +7,7 @@ import { errorMessage } from '../../components/ErrorMessage';
 import placeholder from '../../images/coverPlaceholder.jpg';
 import { ActorsListItem, Image, Name } from './Cast.styled';
 
-export const Cast = () => {
+const Cast = () => {
   const [actors, setActors] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { moviesId } = useParams();
@@ -69,3 +69,5 @@ export const Cast = () => {
     </Box>
   );
 };
+
+export default Cast;

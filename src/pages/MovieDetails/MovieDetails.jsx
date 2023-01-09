@@ -9,8 +9,9 @@ import { MovieAddInfo } from '../../components/MovieAddInfo';
 import { Image } from './MovieDetails.styled';
 import placeholder from '../../images/coverPlaceholder.jpg';
 import { MovieDescription } from '../../components/MovieDescription';
+import { Suspense } from 'react';
 
-export const MoviesDetails = () => {
+const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { moviesId } = useParams();
@@ -63,8 +64,13 @@ export const MoviesDetails = () => {
         <MovieDescription movie={movie} />
       </Box>
       <MovieAddInfo />
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+
       {isLoading && <Loader />}
     </Box>
   );
 };
+
+export default MoviesDetails;
