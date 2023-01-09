@@ -6,7 +6,7 @@ export const TrendingMoviesStyledItem = styled.li`
 `;
 
 export const Image = styled.img`
-  width: 50px;
+  max-width: 50px;
   margin-right: 10px;
 `;
 

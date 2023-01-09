@@ -52,15 +52,18 @@ const MoviesDetails = () => {
         marginTop="10px"
         borderBottom="1px solid #3f51b5"
         marginBottom="10px"
+        height="auto"
       >
-        {poster_path ? (
-          <Image
-            src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-            alt={`poster ${title}`}
-          ></Image>
-        ) : (
-          <Image src={placeholder} alt="placeholder"></Image>
-        )}
+        <Box display="block">
+          {poster_path ? (
+            <Image
+              src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
+              alt={`poster ${title}`}
+            ></Image>
+          ) : (
+            <Image src={placeholder} alt="placeholder"></Image>
+          )}
+        </Box>
         <MovieDescription movie={movie} />
       </Box>
       <MovieAddInfo />
