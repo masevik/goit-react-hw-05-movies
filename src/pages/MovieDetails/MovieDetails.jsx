@@ -6,8 +6,9 @@ import { Loader } from '../../components/Loader';
 import { errorMessage } from '../../components/ErrorMessage';
 import { BackLink } from '../../components/BackLink';
 import { MovieAddInfo } from '../../components/MovieAddInfo';
-import { Overview, Genres, Image, Title } from './MovieDetails.styled';
+import { Image } from './MovieDetails.styled';
 import placeholder from '../../images/coverPlaceholder.jpg';
+import { MovieDescription } from '../../components/MovieDescription';
 
 export const MoviesDetails = () => {
   const [movie, setMovie] = useState(null);
@@ -40,9 +41,7 @@ export const MoviesDetails = () => {
     return;
   }
 
-  const { poster_path, title, release_date, vote_average, overview, genres } =
-    movie;
-  const genresList = genres.map(genre => genre.name);
+  const { poster_path, title } = movie;
 
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
@@ -61,14 +60,7 @@ export const MoviesDetails = () => {
         ) : (
           <Image src={placeholder} alt="placeholder"></Image>
         )}
-        <Box marginLeft="10px">
-          <Title>{`${title} (${new Date(release_date).getFullYear()})`}</Title>
-          <p>User Score: {Math.round(vote_average * 10)}%</p>
-          <Overview>Overview</Overview>
-          <p>{overview}</p>
-          <Genres>Genres</Genres>
-          <p>{genresList.join(' ')}</p>
-        </Box>
+        <MovieDescription movie={movie} />
       </Box>
       <MovieAddInfo />
       <Outlet />

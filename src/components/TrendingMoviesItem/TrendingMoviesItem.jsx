@@ -4,6 +4,7 @@ import {
   Image,
   StyledLink,
 } from './TrendingMoviesItem.styled';
+import placeholder from '../../images/coverPlaceholder.jpg';
 
 export const TrendingMoviesItem = ({ movie }) => {
   const { id, poster_path, title } = movie;
@@ -11,10 +12,14 @@ export const TrendingMoviesItem = ({ movie }) => {
   return (
     <TrendingMoviesStyledItem key={id}>
       <StyledLink to={`movies/${id}`}>
-        <Image
-          src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-          alt={`poster ${title}`}
-        ></Image>
+        {poster_path ? (
+          <Image
+            src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
+            alt={`poster ${title}`}
+          ></Image>
+        ) : (
+          <Image src={placeholder} alt="placeholder"></Image>
+        )}
         {title}
       </StyledLink>
     </TrendingMoviesStyledItem>
