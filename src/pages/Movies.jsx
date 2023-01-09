@@ -8,14 +8,16 @@ import { Loader } from '../components/Loader';
 import { SearchedMovies } from '../components/SearchedMovies';
 
 export const Movies = () => {
-  const [searchQuery, setSearchQuery] = useState('');
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(() =>
+    searchParams.get('query')
+  );
   const movieName = searchParams.get('query') ?? '';
 
   useEffect(() => {
-    if (searchQuery === '') {
+    if (!searchQuery) {
       return;
     }
 
@@ -42,7 +44,7 @@ export const Movies = () => {
 
   return (
     <Box>
-      <Searchbar value={movieName} onSubmit={onSubmitSearch} />
+      <Searchbar valueQuery={movieName} onSubmit={onSubmitSearch} />
       <SearchedMovies movies={searchedMovies} />
       {isLoading && <Loader />}
     </Box>
