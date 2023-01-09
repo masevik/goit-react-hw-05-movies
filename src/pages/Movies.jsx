@@ -14,7 +14,6 @@ const Movies = () => {
   const [searchQuery, setSearchQuery] = useState(() =>
     searchParams.get('query')
   );
-  const movieName = searchParams.get('query') ?? '';
 
   useEffect(() => {
     if (!searchQuery) {
@@ -44,7 +43,7 @@ const Movies = () => {
 
   return (
     <Box>
-      <Searchbar valueQuery={movieName} onSubmit={onSubmitSearch} />
+      <Searchbar onSubmit={onSubmitSearch} />
       <SearchedMovies movies={searchedMovies} />
       {isLoading && <Loader />}
     </Box>
