@@ -2,11 +2,10 @@ import { StyledLink } from './BackLink.styled';
 import PropTypes from 'prop-types';
 
 export const BackLink = ({ to, children }) => {
-  console.log(to);
   return <StyledLink to={to}>{children}</StyledLink>;
 };
 
 BackLink.propTypes = {
-  to: PropTypes.string.isRequired,
+  to: PropTypes.object.isRequired,
   children: PropTypes.string.isRequired,
 };

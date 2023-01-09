@@ -1,1 +1,1 @@
-export { SearchMoviesItem } from './SearchedMoviesItem';
+export { SearchedMoviesItem } from './SearchedMoviesItem';

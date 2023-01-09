@@ -10,12 +10,12 @@ export const MovieAddInfo = () => {
       <p>Additional information</p>
       <AddInfoList>
         <li>
-          <StyledLink to="cast" state={{ from: location }}>
+          <StyledLink to="cast" state={{ ...location.state }}>
             Cast
           </StyledLink>
         </li>
         <li>
-          <StyledLink to="reviews" state={{ from: location }}>
+          <StyledLink to="reviews" state={{ ...location.state }}>
             Reviews
           </StyledLink>
         </li>

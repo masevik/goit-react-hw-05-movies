@@ -1,12 +1,12 @@
-import { SearchMoviesItem } from '../SearchedMoviesItem';
-import { SearchMoviesList } from './SearchedMovies.styled';
+import { SearchedMoviesItem } from '../SearchedMoviesItem';
+import { SearchedMoviesList } from './SearchedMovies.styled';
 
-export const SearchMovies = ({ movies }) => {
+export const SearchedMovies = ({ movies }) => {
   return (
-    <SearchMoviesList>
+    <SearchedMoviesList>
       {movies.map(movie => (
-        <SearchMoviesItem movie={movie} key={movie.id} />
+        <SearchedMoviesItem movie={movie} key={movie.id} />
       ))}
-    </SearchMoviesList>
+    </SearchedMoviesList>
   );
 };

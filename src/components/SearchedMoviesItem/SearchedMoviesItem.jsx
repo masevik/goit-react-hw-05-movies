@@ -2,7 +2,7 @@ import { useLocation } from 'react-router-dom';
 import { StyledLink, Image } from './SearchedMoviesItem.styled';
 import placeholder from '../../images/coverPlaceholder.jpg';
 
-export const SearchMoviesItem = ({ movie }) => {
+export const SearchedMoviesItem = ({ movie }) => {
   const location = useLocation();
   const { id, poster_path, title } = movie;
 
