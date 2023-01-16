@@ -1,9 +1,9 @@
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchMovieById } from '../../components/API';
+import { fetchMovieById } from '../../services/API';
 import { Box } from 'components/Box';
 import { Loader } from '../../components/Loader';
-import { errorMessage } from '../../components/ErrorMessage';
+import { errorMessage } from '../../services/ErrorMessage';
 import { BackLink } from '../../components/BackLink';
 import { MovieAddInfo } from '../../components/MovieAddInfo';
 import { Image } from './MovieDetails.styled';

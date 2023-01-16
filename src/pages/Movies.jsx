@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Searchbar } from '../components/Searchbar';
-import { fetchSearchMovie } from '../components/API';
-import { errorMessage } from '../components/ErrorMessage';
+import { fetchSearchMovie } from '../services/API';
+import { errorMessage } from '../services/ErrorMessage';
 import { Box } from 'components/Box';
 import { Loader } from '../components/Loader';
 import { SearchedMovies } from '../components/SearchedMovies';

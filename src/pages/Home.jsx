@@ -1,8 +1,8 @@
-import { fetchTrendingMovies } from '../components/API';
+import { fetchTrendingMovies } from '../services/API';
 import { useState, useEffect } from 'react';
 import { TrendingMovies } from 'components/TrendingMovies';
 import { Loader } from '../components/Loader';
-import { errorMessage } from '../components/ErrorMessage';
+import { errorMessage } from '../services/ErrorMessage';
 import { Box } from 'components/Box';
 
 const Home = () => {

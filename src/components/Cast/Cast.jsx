@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchActorsById } from '../../components/API';
+import { fetchActorsById } from '../../services/API';
 import { Box } from 'components/Box';
 import { Loader } from '../../components/Loader';
-import { errorMessage } from '../../components/ErrorMessage';
+import { errorMessage } from '../../services/ErrorMessage';
 import placeholder from '../../images/coverPlaceholder.jpg';
 import { ActorsListItem, Image, Name } from './Cast.styled';
 

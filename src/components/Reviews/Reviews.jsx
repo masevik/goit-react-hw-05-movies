@@ -1,9 +1,9 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { fetchReviewsById } from '../../components/API';
+import { fetchReviewsById } from '../../services/API';
 import { Box } from 'components/Box';
 import { Loader } from '../../components/Loader';
-import { errorMessage } from '../../components/ErrorMessage';
+import { errorMessage } from '../../services/ErrorMessage';
 import { ReviewsListItem, Name } from './Reviews.styled';
 
 const Reviews = () => {
