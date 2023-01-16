@@ -43,6 +43,8 @@ const MoviesDetails = () => {
   }
 
   const { poster_path, title } = movie;
+  const src = `https://image.tmdb.org/t/p/w200/${poster_path}`;
+  const alt = `poster ${title}`;
 
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
@@ -56,12 +58,9 @@ const MoviesDetails = () => {
       >
         <Box display="block">
           {poster_path ? (
-            <Image
-              src={`https://image.tmdb.org/t/p/w200/${poster_path}`}
-              alt={`poster ${title}`}
-            ></Image>
+            <Image src={src} alt={alt} />
           ) : (
-            <Image src={placeholder} alt="placeholder"></Image>
+            <Image src={placeholder} alt="placeholder" />
           )}
         </Box>
         <MovieDescription movie={movie} />

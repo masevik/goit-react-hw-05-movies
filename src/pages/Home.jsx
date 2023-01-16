@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <Box paddingLeft="16px" paddingRight="16px" paddingTop="10px">
       <h2>Trending today</h2>
-      <MoviesList movies={trendingMovies} />
+      {trendingMovies.length > 0 && <MoviesList movies={trendingMovies} />}
       {isLoading && <Loader />}
     </Box>
   );

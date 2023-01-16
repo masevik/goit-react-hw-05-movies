@@ -12,9 +12,9 @@ export const MoviesListItem = ({ movie }) => {
     <li key={id}>
       <StyledLink to={`/movies/${id}`} state={{ from: location }}>
         {poster_path ? (
-          <Image src={src} alt={alt}></Image>
+          <Image src={src} alt={alt} />
         ) : (
-          <Image src={placeholder} alt="placeholder"></Image>
+          <Image src={placeholder} alt="placeholder" />
         )}
         {title}
       </StyledLink>

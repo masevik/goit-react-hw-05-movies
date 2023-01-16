@@ -11,9 +11,11 @@ const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const [searchQuery, setSearchQuery] = useState(() =>
-    searchParams.get('query')
-  );
+  // const [searchQuery, setSearchQuery] = useState(() =>
+  //   searchParams.get('query')
+  // );
+
+  const searchQuery = searchParams.get('query');
 
   useEffect(() => {
     if (!searchQuery) {
@@ -36,7 +38,7 @@ const Movies = () => {
   }, [searchQuery]);
 
   const onSubmitSearch = query => {
-    setSearchQuery(query);
+    // setSearchQuery(query);
     const nextParams = query !== '' ? { query } : {};
     setSearchParams(nextParams);
   };
@@ -44,7 +46,7 @@ const Movies = () => {
   return (
     <Box>
       <Searchbar onSubmit={onSubmitSearch} />
-      <MoviesList movies={searchedMovies} />
+      {searchedMovies.length > 0 && <MoviesList movies={searchedMovies} />}
       {isLoading && <Loader />}
     </Box>
   );
