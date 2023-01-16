@@ -5,7 +5,7 @@ import { fetchSearchMovie } from '../services/API';
 import { errorMessage } from '../services/ErrorMessage';
 import { Box } from 'components/Box';
 import { Loader } from '../components/Loader';
-import { SearchedMovies } from '../components/SearchedMovies';
+import { MoviesList } from '../components/MoviesList';
 
 const Movies = () => {
   const [searchedMovies, setSearchedMovies] = useState([]);
@@ -44,7 +44,7 @@ const Movies = () => {
   return (
     <Box>
       <Searchbar onSubmit={onSubmitSearch} />
-      <SearchedMovies movies={searchedMovies} />
+      <MoviesList movies={searchedMovies} />
       {isLoading && <Loader />}
     </Box>
   );

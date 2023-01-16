@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-export const SearchedMoviesList = styled.ul`
+export const MoviesListStyled = styled.ul`
   padding: 10px 16px;
 `;
